@@ -19,5 +19,9 @@
 
         <service id="msi_block.action.block.type" class="Msi\Bundle\BlockBundle\Block\Type\ActionType">
         </service>
+
+        <service id="msi_block.block.twig.extension" class="Msi\Bundle\BlockBundle\Twig\Extension\BlockExtension" public="false">
+            <tag name="twig.extension" />
+        </service>
     </services>
 </container>

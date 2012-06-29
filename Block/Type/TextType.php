@@ -8,6 +8,7 @@ class TextType
     {
         $builder->add('settings', 'msi_block_settings', array(
             'fields' => array(
+                array('name', 'text', array()),
                 array('content', 'textarea', array()),
             ),
         ));
@@ -16,6 +17,7 @@ class TextType
     public function getDefaultSettings()
     {
         return array(
+            'name' => 'content_top',
             'content' => 'Insert awful content here.',
         );
     }

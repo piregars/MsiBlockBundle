@@ -78,6 +78,11 @@ abstract class Block
         return $this;
     }
 
+    public function getSetting($key)
+    {
+        return array_key_exists($key, $this->settings) ? $this->settings[$key] : null;
+    }
+
     public function setSetting($key, $value)
     {
         $this->settings[$key] = $value;
