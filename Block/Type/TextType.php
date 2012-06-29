@@ -4,6 +4,13 @@ namespace Msi\Bundle\BlockBundle\Block\Type;
 
 class TextType
 {
+    public function render($block)
+    {
+        $settings = array_merge($this->getDefaultSettings(), $block->getSettings());
+
+        $this->templating->render('MsiBlockBundle:Block:block_text.html.twig', array('settings' => $settings));
+    }
+
     public function buildForm($builder)
     {
         $builder->add('settings', 'msi_block_settings', array(
