@@ -15,13 +15,17 @@
         </service>
 
         <service id="msi_block.text.block.type" class="Msi\Bundle\BlockBundle\Block\Type\TextType">
+            <argument type="service" id="templating" />
         </service>
 
         <service id="msi_block.action.block.type" class="Msi\Bundle\BlockBundle\Block\Type\ActionType">
+            <argument type="service" id="templating" />
+            <argument type="service" id="http_kernel" />
         </service>
 
         <service id="msi_block.block.twig.extension" class="Msi\Bundle\BlockBundle\Twig\Extension\BlockExtension" public="false">
             <tag name="twig.extension" />
+            <argument type="service" id="service_container" />
         </service>
     </services>
 </container>

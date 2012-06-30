@@ -6,6 +6,13 @@ class BlockExtension extends \Twig_Extension
 {
     private $environment;
 
+    private $container;
+
+    public function __construct($container)
+    {
+        $this->container = $container;
+    }
+
     public function getFunctions()
     {
         return array(
@@ -27,7 +34,9 @@ class BlockExtension extends \Twig_Extension
     {
         foreach ($parent->getBlocks() as $block) {
             if ($block->getSetting('name') === $name && $block->getEnabled()) {
-                return $block->getSetting('content');
+                $type = $this->container->get($block->getType());
+
+                return $type->render($block);
             }
         }
     }

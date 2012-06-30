@@ -2,30 +2,19 @@
 
 namespace Msi\Bundle\BlockBundle\Block\Type;
 
-class TextType
+class TextType extends AbstractType
 {
     public function render($block)
     {
         $settings = array_merge($this->getDefaultSettings(), $block->getSettings());
 
-        $this->templating->render('MsiBlockBundle:Block:block_text.html.twig', array('settings' => $settings));
+        return $this->templating->render('MsiBlockBundle:Block:block_text.html.twig', array('settings' => $settings));
     }
 
-    public function buildForm($builder)
-    {
-        $builder->add('settings', 'msi_block_settings', array(
-            'fields' => array(
-                array('name', 'text', array()),
-                array('content', 'textarea', array()),
-            ),
-        ));
-    }
-
-    public function getDefaultSettings()
+    public function configureForm()
     {
         return array(
-            'name' => 'content_top',
-            'content' => 'Insert awful content here.',
+            array('content', 'textarea', array()),
         );
     }
 }

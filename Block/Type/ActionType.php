@@ -2,21 +2,31 @@
 
 namespace Msi\Bundle\BlockBundle\Block\Type;
 
-class ActionType
+use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+
+class ActionType extends AbstractType
 {
-    public function buildForm($builder)
+    protected $kernel;
+
+    public function __construct(EngineInterface $templating, HttpKernelInterface $kernel)
     {
-        $builder->add('settings', 'msi_block_settings', array(
-            'fields' => array(
-                array('content', 'textarea', array()),
-            ),
-        ));
+        parent::__construct($templating);
+
+        $this->kernel = $kernel;
     }
 
-    public function getDefaultSettings()
+    public function render($block)
+    {
+        $settings = array_merge($this->getDefaultSettings(), $block->getSettings());
+
+        return $this->kernel->render($settings['action']);
+    }
+
+    public function configureForm()
     {
         return array(
-            'content' => 'Insert awful content here.',
+            array('action', 'text', array()),
         );
     }
 }
