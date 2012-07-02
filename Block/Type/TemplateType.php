@@ -2,7 +2,7 @@
 
 namespace Msi\Bundle\BlockBundle\Block\Type;
 
-class TemplateType extends AbstractType
+class TemplateType extends Type
 {
     public function render($block)
     {

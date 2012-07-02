@@ -4,7 +4,7 @@ namespace Msi\Bundle\BlockBundle\Block\Type;
 
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
-abstract class AbstractType
+abstract class Type
 {
     protected $templating;
 

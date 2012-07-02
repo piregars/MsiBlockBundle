@@ -34,6 +34,11 @@ abstract class Block
     protected $updatedAt;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    protected $position;
+
+    /**
      * @ORM\Column(type="array")
      */
     protected $settings;
@@ -44,6 +49,7 @@ abstract class Block
         $this->updatedAt = new \DateTime();
         $this->enabled = false;
         $this->settings = array();
+        $this->position = 1;
     }
 
     /**
@@ -52,6 +58,18 @@ abstract class Block
     public function preUpdate()
     {
         $this->updatedAt = new \DateTime();
+    }
+
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
     }
 
     public function getType()

@@ -2,7 +2,7 @@
 
 namespace Msi\Bundle\BlockBundle\Block\Type;
 
-class TextType extends AbstractType
+class TextType extends Type
 {
     public function render($block)
     {

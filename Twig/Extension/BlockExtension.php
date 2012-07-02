@@ -32,12 +32,16 @@ class BlockExtension extends \Twig_Extension
 
     public function renderBlock($name, $parent)
     {
+        $content = '';
+
         foreach ($parent->getBlocks() as $block) {
             if ($block->getSetting('name') === $name && $block->getEnabled()) {
                 $type = $this->container->get($block->getType());
 
-                return $type->render($block);
+                $content .= $type->render($block);
             }
         }
+
+        return $content;
     }
 }
