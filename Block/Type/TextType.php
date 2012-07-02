@@ -14,8 +14,8 @@ class TextType extends Type
     public function configureForm()
     {
         return array(
-            array('content_fr', 'textarea', array()),
-            array('content_en', 'textarea', array()),
+            array('content_fr', 'textarea', array('attr' => array('class' => 'tinymce'))),
+            array('content_en', 'textarea', array('attr' => array('class' => 'tinymce'))),
         );
     }
 }
