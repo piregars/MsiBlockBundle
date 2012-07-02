@@ -1,1 +1,1 @@
-{{ settings.content|raw }}
+{{ settings['content_'~app.session.locale]|raw }}

@@ -14,7 +14,8 @@ class TextType extends AbstractType
     public function configureForm()
     {
         return array(
-            array('content', 'textarea', array()),
+            array('content_fr', 'textarea', array()),
+            array('content_en', 'textarea', array()),
         );
     }
 }
