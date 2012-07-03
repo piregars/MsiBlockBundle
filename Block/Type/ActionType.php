@@ -25,10 +25,12 @@ class ActionType extends BaseType
         return $this->kernel->render($settings['action']);
     }
 
-    public function configureForm()
+    public function buildForm($builder, $fields = array())
     {
-        return array(
+        $fields = array(
             array('action', 'text', array()),
         );
+
+        parent::buildForm($builder, $fields);
     }
 }

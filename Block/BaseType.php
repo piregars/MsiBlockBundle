@@ -13,14 +13,10 @@ abstract class BaseType
         $this->templating = $templating;
     }
 
-    public function configureForm()
-    {
-    }
-
-    public function buildForm($builder)
+    public function buildForm($builder, $fields = array())
     {
         $builder->add('settings', 'msi_block_settings', array(
-            'fields' => array_merge(array(array('name', 'text', array())), $this->configureForm()),
+            'fields' => array_merge(array(array('name', 'text', array())), $fields),
         ));
     }
 

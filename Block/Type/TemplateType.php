@@ -13,10 +13,12 @@ class TemplateType extends BaseType
         return $this->templating->render($settings['template'], array('settings' => $settings));
     }
 
-    public function configureForm()
+    public function buildForm($builder, $fields = array())
     {
-        return array(
+        $fields = array(
             array('template', 'text', array()),
         );
+
+        parent::buildForm($builder, $fields);
     }
 }

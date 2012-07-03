@@ -13,11 +13,13 @@ class TextType extends BaseType
         return $this->templating->render('MsiBlockBundle:Block:block_text.html.twig', array('settings' => $settings));
     }
 
-    public function configureForm()
+    public function buildForm($builder, $fields = array())
     {
-        return array(
+        $fields = array(
             array('content_fr', 'textarea', array('attr' => array('class' => 'tinymce'))),
             array('content_en', 'textarea', array('attr' => array('class' => 'tinymce'))),
         );
+
+        parent::buildForm($builder, $fields);
     }
 }
