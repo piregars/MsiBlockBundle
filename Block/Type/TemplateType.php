@@ -2,7 +2,9 @@
 
 namespace Msi\Bundle\BlockBundle\Block\Type;
 
-class TemplateType extends Type
+use Msi\Bundle\BlockBundle\Block\BaseType;
+
+class TemplateType extends BaseType
 {
     public function render($block)
     {

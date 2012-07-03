@@ -5,7 +5,9 @@ namespace Msi\Bundle\BlockBundle\Block\Type;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
-class ActionType extends Type
+use Msi\Bundle\BlockBundle\Block\BaseType;
+
+class ActionType extends BaseType
 {
     protected $kernel;
 

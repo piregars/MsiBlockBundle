@@ -1,10 +1,10 @@
 <?php
 
-namespace Msi\Bundle\BlockBundle\Block\Type;
+namespace Msi\Bundle\BlockBundle\Block;
 
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
-abstract class Type
+abstract class BaseType
 {
     protected $templating;
 
@@ -13,14 +13,16 @@ abstract class Type
         $this->templating = $templating;
     }
 
+    public function configureForm()
+    {
+    }
+
     public function buildForm($builder)
     {
         $builder->add('settings', 'msi_block_settings', array(
             'fields' => array_merge(array(array('name', 'text', array())), $this->configureForm()),
         ));
     }
-
-    abstract public function configureForm();
 
     public function getDefaultSettings()
     {

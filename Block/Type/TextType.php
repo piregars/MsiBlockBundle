@@ -2,7 +2,9 @@
 
 namespace Msi\Bundle\BlockBundle\Block\Type;
 
-class TextType extends Type
+use Msi\Bundle\BlockBundle\Block\BaseType;
+
+class TextType extends BaseType
 {
     public function render($block)
     {
