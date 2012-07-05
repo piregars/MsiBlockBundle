@@ -25,6 +25,7 @@
 
         <service id="msi_block.template.block.type" class="Msi\Bundle\BlockBundle\Block\Type\TemplateType">
             <argument type="service" id="templating" />
+            <argument>%msi_block.template_choices%</argument>
         </service>
 
         <service id="msi_block.block.twig.extension" class="Msi\Bundle\BlockBundle\Twig\Extension\BlockExtension" public="false">
