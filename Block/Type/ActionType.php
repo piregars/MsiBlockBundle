@@ -11,9 +11,9 @@ class ActionType extends BaseType
 {
     protected $kernel;
 
-    public function __construct(EngineInterface $templating, HttpKernelInterface $kernel)
+    public function __construct(EngineInterface $templating, $nameChoices, HttpKernelInterface $kernel)
     {
-        parent::__construct($templating);
+        parent::__construct($templating, $nameChoices);
 
         $this->kernel = $kernel;
     }

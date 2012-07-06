@@ -9,9 +9,9 @@ class TemplateType extends BaseType
 {
     protected $templateChoices;
 
-    public function __construct(EngineInterface $templating, $templateChoices)
+    public function __construct(EngineInterface $templating, $nameChoices, $templateChoices)
     {
-        parent::__construct($templating);
+        parent::__construct($templating, $nameChoices);
 
         $this->templateChoices = $templateChoices;
     }

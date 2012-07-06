@@ -23,8 +23,15 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->arrayNode('template_choices')
-                ->useAttributeAsKey('name')
-                ->prototype('scalar')->end()
+                    ->useAttributeAsKey('name')
+                    ->prototype('scalar')
+                    ->end()
+                ->end()
+                ->arrayNode('name_choices')
+                    ->useAttributeAsKey('name')
+                    ->prototype('scalar')
+                    ->end()
+                ->end()
             ->end()
         ;
 

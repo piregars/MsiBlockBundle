@@ -16,15 +16,18 @@
 
         <service id="msi_block.text.block.type" class="Msi\Bundle\BlockBundle\Block\Type\TextType">
             <argument type="service" id="templating" />
+            <argument>%msi_block.name_choices%</argument>
         </service>
 
         <service id="msi_block.action.block.type" class="Msi\Bundle\BlockBundle\Block\Type\ActionType">
             <argument type="service" id="templating" />
+            <argument>%msi_block.name_choices%</argument>
             <argument type="service" id="http_kernel" />
         </service>
 
         <service id="msi_block.template.block.type" class="Msi\Bundle\BlockBundle\Block\Type\TemplateType">
             <argument type="service" id="templating" />
+            <argument>%msi_block.name_choices%</argument>
             <argument>%msi_block.template_choices%</argument>
         </service>
 
