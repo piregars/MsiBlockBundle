@@ -16,8 +16,8 @@ class TextType extends BaseType
     public function buildForm($builder, $fields = array())
     {
         $fields = array(
-            array('content_fr', 'textarea', array('attr' => array('class' => 'tinymce'))),
             array('content_en', 'textarea', array('attr' => array('class' => 'tinymce'))),
+            array('content_fr', 'textarea', array('attr' => array('class' => 'tinymce'))),
         );
 
         parent::buildForm($builder, $fields);
