@@ -146,6 +146,6 @@ abstract class Block
 
     public function __toString()
     {
-        return 'block (id:'.$this->getId().')';
+        return $this->getSetting('name');
     }
 }
