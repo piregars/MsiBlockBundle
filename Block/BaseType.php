@@ -18,7 +18,7 @@ abstract class BaseType
     public function buildForm($builder, $fields = array())
     {
         $builder->add('settings', 'msi_block_settings', array(
-            'fields' => array_merge(array(array('name', 'choice', array('choices' => $this->nameChoices))), $fields),
+            'fields' => array_merge(array(array('name', 'choice', array('label' => 'Position', 'choices' => $this->nameChoices))), $fields),
         ));
     }
 
