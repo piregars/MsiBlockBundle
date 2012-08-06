@@ -164,6 +164,6 @@ abstract class Block
 
     public function __toString()
     {
-        return 'Block '.$this->id;
+        return $this->name;
     }
 }
