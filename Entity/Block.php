@@ -19,6 +19,12 @@ abstract class Block
     protected $type;
 
     /**
+     * @ORM\Column()
+     * @Assert\NotBlank()
+     */
+    protected $name;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     protected $enabled;
@@ -140,6 +146,18 @@ abstract class Block
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
 
         return $this;
     }
