@@ -22,8 +22,8 @@ class MsiBlockExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('msi_block.block.template.choices', $config['block']['template']['choices']);
-        $container->setParameter('msi_block.block.action.choices', $config['block']['action']['choices']);
+        $container->setParameter('msi_block.block.template.choices', $config['blocks']['template']['choices']);
+        $container->setParameter('msi_block.block.action.choices', $config['blocks']['action']['choices']);
         $container->setParameter('msi_block.name_choices', $config['name_choices']);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));

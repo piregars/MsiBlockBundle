@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->arrayNode('block')
+                ->arrayNode('blocks')
                     ->children()
                         ->arrayNode('template')
                             ->children()
