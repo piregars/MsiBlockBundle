@@ -10,11 +10,13 @@ use Msi\Bundle\BlockBundle\Block\BaseType;
 class ActionType extends BaseType
 {
     protected $kernel;
+    protected $actions;
 
-    public function __construct(EngineInterface $templating, $nameChoices, HttpKernelInterface $kernel)
+    public function __construct($nameChoices, $actions, HttpKernelInterface $kernel)
     {
-        parent::__construct($templating, $nameChoices);
+        parent::__construct($nameChoices);
 
+        $this->actions = $actions;
         $this->kernel = $kernel;
     }
 
@@ -28,7 +30,7 @@ class ActionType extends BaseType
     public function buildForm($builder, $fields = array())
     {
         $fields = array(
-            array('action', 'text', array()),
+            array('action', 'choice', array('choices' => $this->actions)),
         );
 
         parent::buildForm($builder, $fields);

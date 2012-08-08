@@ -7,13 +7,13 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class TemplateType extends BaseType
 {
-    protected $templateChoices;
+    protected $templates;
 
-    public function __construct(EngineInterface $templating, $nameChoices, $templateChoices)
+    public function __construct($nameChoices, $templates)
     {
-        parent::__construct($templating, $nameChoices);
+        parent::__construct($nameChoices);
 
-        $this->templateChoices = $templateChoices;
+        $this->templates = $templates;
     }
 
     public function render($block)
@@ -26,7 +26,7 @@ class TemplateType extends BaseType
     public function buildForm($builder, $fields = array())
     {
         $fields = array(
-            array('template', 'choice', array('choices' => $this->templateChoices)),
+            array('template', 'choice', array('choices' => $this->templates)),
         );
 
         parent::buildForm($builder, $fields);

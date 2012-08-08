@@ -27,4 +27,8 @@ abstract class BaseType
 
         return $this;
     }
+
+    public function getDefaultSettings()
+    {
+    }
 }
