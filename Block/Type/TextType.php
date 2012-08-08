@@ -6,6 +6,15 @@ use Msi\Bundle\BlockBundle\Block\BaseType;
 
 class TextType extends BaseType
 {
+    protected $locales;
+
+    public function __construct($names, $locales)
+    {
+        parent::__construct($names);
+
+        $this->locales = $locales;
+    }
+
     public function render($block)
     {
         $settings = array_merge($this->getDefaultSettings(), $block->getSettings());
@@ -15,10 +24,9 @@ class TextType extends BaseType
 
     public function buildForm($builder, $fields = array())
     {
-        $fields = array(
-            array('content_en', 'textarea', array('attr' => array('class' => 'tinymce'))),
-            array('content_fr', 'textarea', array('attr' => array('class' => 'tinymce'))),
-        );
+        foreach ($this->locales as $locale) {
+            $fields[] = array('content_'.$locale, 'textarea', array('label' => 'Content '.strtoupper($locale), 'attr' => array('class' => 'tinymce')));
+        }
 
         parent::buildForm($builder, $fields);
     }

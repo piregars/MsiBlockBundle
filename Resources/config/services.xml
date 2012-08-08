@@ -4,31 +4,30 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
-    <parameters>
-        <parameter key="msi_block.example.class">Msi\Bundle\BlockBundle\Example</parameter>
-    </parameters>
-    -->
     <services>
-        <service id="msi_block.settings.form.type" class="Msi\Bundle\BlockBundle\Form\Type\SettingsType">
-            <tag name="form.type" alias="msi_block_settings" />
+        <service id="msi_block.base_block" class="Msi\Bundle\BlockBundle\Block\BaseBlock" abstract="true">
+            <call method="setTemplating">
+                <argument type="service" id="templating" />
+            </call>
         </service>
 
-        <service id="msi_block.block.text.type" class="Msi\Bundle\BlockBundle\Block\Type\TextType">
-            <argument type="service" id="templating" />
+        <service id="msi_block.block.text.type" class="Msi\Bundle\BlockBundle\Block\Type\TextType" parent="msi_block.base_block">
             <argument>%msi_block.name_choices%</argument>
+            <argument>%msi_admin.locales%</argument>
         </service>
 
-        <service id="msi_block.block.action.type" class="Msi\Bundle\BlockBundle\Block\Type\ActionType">
-            <argument type="service" id="templating" />
+        <service id="msi_block.block.action.type" class="Msi\Bundle\BlockBundle\Block\Type\ActionType" parent="msi_block.base_block">
             <argument>%msi_block.name_choices%</argument>
             <argument type="service" id="http_kernel" />
         </service>
 
-        <service id="msi_block.block.template.type" class="Msi\Bundle\BlockBundle\Block\Type\TemplateType">
-            <argument type="service" id="templating" />
+        <service id="msi_block.block.template.type" class="Msi\Bundle\BlockBundle\Block\Type\TemplateType" parent="msi_block.base_block">
             <argument>%msi_block.name_choices%</argument>
             <argument>%msi_block.template_choices%</argument>
+        </service>
+
+        <service id="msi_block.settings.form.type" class="Msi\Bundle\BlockBundle\Form\Type\SettingsType">
+            <tag name="form.type" alias="msi_block_settings" />
         </service>
 
         <service id="msi_block.block.twig.extension" class="Msi\Bundle\BlockBundle\Twig\Extension\BlockExtension" public="false">

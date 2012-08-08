@@ -7,23 +7,24 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 abstract class BaseType
 {
     protected $templating;
-    protected $nameChoices;
+    protected $names;
 
-    public function __construct(EngineInterface $templating, $nameChoices)
+    public function __construct($names)
     {
-        $this->templating = $templating;
-        $this->nameChoices = $nameChoices;
+        $this->names = $names;
     }
 
     public function buildForm($builder, $fields = array())
     {
         $builder->add('settings', 'msi_block_settings', array(
-            'fields' => array_merge(array(array('name', 'choice', array('label' => 'Position', 'choices' => $this->nameChoices))), $fields),
+            'fields' => array_merge(array(array('name', 'choice', array('label' => 'Position', 'choices' => $this->names))), $fields),
         ));
     }
 
-    public function getDefaultSettings()
+    public function setTemplating(EngineInterface $templating)
     {
-        return array();
+        $this->templating = $templating;
+
+        return $this;
     }
 }
