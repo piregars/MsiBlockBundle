@@ -12,19 +12,19 @@
         </service>
 
         <service id="msi_block.block.text.type" class="Msi\Bundle\BlockBundle\Block\Type\TextType" parent="msi_block.base_block">
-            <argument>%msi_block.name_choices%</argument>
+            <argument>%msi_block.slots%</argument>
             <argument>%msi_admin.locales%</argument>
         </service>
 
         <service id="msi_block.block.action.type" class="Msi\Bundle\BlockBundle\Block\Type\ActionType" parent="msi_block.base_block">
-            <argument>%msi_block.name_choices%</argument>
-            <argument>%msi_block.block.action.choices%</argument>
+            <argument>%msi_block.slots%</argument>
+            <argument>%msi_block.blocks.action.actions%</argument>
             <argument type="service" id="http_kernel" />
         </service>
 
         <service id="msi_block.block.template.type" class="Msi\Bundle\BlockBundle\Block\Type\TemplateType" parent="msi_block.base_block">
-            <argument>%msi_block.name_choices%</argument>
-            <argument>%msi_block.block.template.choices%</argument>
+            <argument>%msi_block.slots%</argument>
+            <argument>%msi_block.blocks.template.templates%</argument>
         </service>
 
         <service id="msi_block.settings.form.type" class="Msi\Bundle\BlockBundle\Form\Type\SettingsType">
