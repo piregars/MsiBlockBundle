@@ -30,5 +30,6 @@ abstract class BaseType
 
     public function getDefaultSettings()
     {
+        return array();
     }
 }
