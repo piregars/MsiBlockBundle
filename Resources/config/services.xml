@@ -13,7 +13,7 @@
 
         <service id="msi_block.block.text.type" class="Msi\Bundle\BlockBundle\Block\Type\TextType" parent="msi_block.base_block">
             <argument>%msi_block.slots%</argument>
-            <argument>%msi_admin.locales%</argument>
+            <argument>%msi_admin.app_locales%</argument>
         </service>
 
         <service id="msi_block.block.action.type" class="Msi\Bundle\BlockBundle\Block\Type\ActionType" parent="msi_block.base_block">
