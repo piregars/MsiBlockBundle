@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\MappedSuperClass
+ * @ORM\MappedSuperclass
  * @ORM\HasLifecycleCallbacks
  */
 abstract class Block
